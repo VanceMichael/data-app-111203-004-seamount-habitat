@@ -1,0 +1,327 @@
+{
+  "clusters": {
+    "area_share": [
+      0.5363924050632911,
+      0.46360759493670883
+    ],
+    "centers": [
+      [
+        -0.7476952468344127,
+        -0.5598519350907716,
+        -0.30893711303480587,
+        0.32940019665683384,
+        0.3343166175024582,
+        0.336283185840708
+      ],
+      [
+        0.8650808487265058,
+        0.6477467781425642,
+        0.3574391853883933,
+        0.3378839590443686,
+        0.3321956769055745,
+        0.32992036405005687
+      ]
+    ],
+    "inertia": 4828.642220698132,
+    "k": 2,
+    "k_requested": 2,
+    "max_train_distance": [
+      2.4695994275363753,
+      2.5593332794213266
+    ]
+  },
+  "diagnostics": {
+    "min_margin": 0.1,
+    "rule": "满足任一条件即判为无可靠归属（cluster 为 null）：出现训练未见的底质类别；最近簇中心距离超过该簇训练期最大距离；置信边际 (次近距离-最近距离)/次近距离 低于 min_margin。"
+  },
+  "features": {
+    "categorical": [
+      "substrate"
+    ],
+    "categorical_weight": 1.0,
+    "numeric": [
+      "depth",
+      "slope",
+      "roughness"
+    ]
+  },
+  "fingerprint": "3d9e11c1ff6ac3a140bafe5f8e58802a27f90e50012581f36a2323d15d2a7686",
+  "module": "habitat",
+  "preprocessing": {
+    "categorical_weight": 1.0,
+    "dictionary": [
+      "mixed",
+      "rock",
+      "sand"
+    ],
+    "imputation": {
+      "depth": 675.9409789548254,
+      "roughness": 0.9805214356779056,
+      "slope": 18.99011123416216
+    },
+    "note": "缺值填补、尺度变换与类别字典均只在训练海山上拟合，并随模型产物保存",
+    "scaler": {
+      "depth": {
+        "mean": 657.9312043085964,
+        "std": 195.27353225482307
+      },
+      "roughness": {
+        "mean": 1.0182338313929966,
+        "std": 0.7820553314642565
+      },
+      "slope": {
+        "mean": 17.438690051112815,
+        "std": 6.830823762408399
+      }
+    }
+  },
+  "product": "seamount-habitat",
+  "profiles": [
+    {
+      "area": 1017.0,
+      "area_share": 0.5363924050632911,
+      "cells": 157,
+      "cluster": 0,
+      "description": "簇1：代表面积占比 53.6%（157 个网格，合计 1017.0 平方千米）。深度均值约 512 米（范围 284～791 米）。坡度均值约 13.6 度。粗糙度均值约 0.78。底质以 sand（面积占比 33.6%）、rock（面积占比 33.4%） 为主。主要分布海山：M0（41.3%）、M1（35.4%）、M3（14.3%）。",
+      "features": {
+        "depth": {
+          "maximum": 791.4939005454545,
+          "mean": 511.9261124090988,
+          "minimum": 283.9822630847372,
+          "observed": 157
+        },
+        "roughness": {
+          "maximum": 2.221214835064068,
+          "mean": 0.7766279150569511,
+          "minimum": 0.0,
+          "observed": 157
+        },
+        "slope": {
+          "maximum": 26.58310335934934,
+          "mean": 13.614440149464448,
+          "minimum": 6.193568999039683,
+          "observed": 157
+        }
+      },
+      "label": "簇1",
+      "seamount_shares": {
+        "M0": 0.41297935103244837,
+        "M1": 0.35398230088495575,
+        "M2": 0.09046214355948869,
+        "M3": 0.14257620452310718
+      },
+      "substrate_shares": {
+        "mixed": 0.32940019665683384,
+        "rock": 0.3343166175024582,
+        "sand": 0.336283185840708
+      }
+    },
+    {
+      "area": 879.0,
+      "area_share": 0.46360759493670883,
+      "cells": 131,
+      "cluster": 1,
+      "description": "簇2：代表面积占比 46.4%（131 个网格，合计 879.0 平方千米）。深度均值约 827 米（范围 509～1003 米）。坡度均值约 21.9 度。粗糙度均值约 1.30。底质以 mixed（面积占比 33.8%）、rock（面积占比 33.2%） 为主。主要分布海山：M3（44.9%）、M2（44.1%）、M1（9.6%）。",
+      "features": {
+        "depth": {
+          "maximum": 1003.439778026744,
+          "mean": 826.8585973254214,
+          "minimum": 509.22809727271255,
+          "observed": 131
+        },
+        "roughness": {
+          "maximum": 2.1678155039963296,
+          "mean": 1.2977710520002304,
+          "minimum": 0.0,
+          "observed": 131
+        },
+        "slope": {
+          "maximum": 28.81399275967125,
+          "mean": 21.863334135272524,
+          "minimum": 5.973481029337052,
+          "observed": 131
+        }
+      },
+      "label": "簇2",
+      "seamount_shares": {
+        "M0": 0.013651877133105802,
+        "M1": 0.09556313993174062,
+        "M2": 0.44141069397042093,
+        "M3": 0.44937428896473264
+      },
+      "substrate_shares": {
+        "mixed": 0.3378839590443686,
+        "rock": 0.3321956769055745,
+        "sand": 0.32992036405005687
+      }
+    }
+  ],
+  "schema_version": 1,
+  "selection": {
+    "candidates": [
+      {
+        "folds": [
+          {
+            "adjusted_rand": 0.929909205934289,
+            "aligned_agreement": 0.9861111111111112,
+            "seamount": "M0"
+          },
+          {
+            "adjusted_rand": 1.0,
+            "aligned_agreement": 1.0,
+            "seamount": "M1"
+          },
+          {
+            "adjusted_rand": 0.5563418310681822,
+            "aligned_agreement": 0.875,
+            "seamount": "M2"
+          },
+          {
+            "adjusted_rand": 0.0,
+            "aligned_agreement": 0.7638888888888888,
+            "seamount": "M3"
+          }
+        ],
+        "k": 2,
+        "score": 0.7290432719934717,
+        "silhouette": 0.27670373371275986,
+        "size_balance": 0.9272151898734177,
+        "stability": 0.6215627592506179
+      },
+      {
+        "folds": [
+          {
+            "adjusted_rand": 0.10324459333088694,
+            "aligned_agreement": 0.7361111111111112,
+            "seamount": "M0"
+          },
+          {
+            "adjusted_rand": 0.5218855218855218,
+            "aligned_agreement": 0.8333333333333334,
+            "seamount": "M1"
+          },
+          {
+            "adjusted_rand": 0.950715778768084,
+            "aligned_agreement": 0.9861111111111112,
+            "seamount": "M2"
+          },
+          {
+            "adjusted_rand": 0.5566458519179305,
+            "aligned_agreement": 0.875,
+            "seamount": "M3"
+          }
+        ],
+        "k": 3,
+        "score": 0.6323815515027708,
+        "silhouette": 0.27551179049579244,
+        "size_balance": 0.7262658227848102,
+        "stability": 0.5331229364756058
+      },
+      {
+        "folds": [
+          {
+            "adjusted_rand": 0.1807994049790233,
+            "aligned_agreement": 0.5,
+            "seamount": "M0"
+          },
+          {
+            "adjusted_rand": 0.3317018072289157,
+            "aligned_agreement": 0.6666666666666666,
+            "seamount": "M1"
+          },
+          {
+            "adjusted_rand": 0.634566146627349,
+            "aligned_agreement": 0.7638888888888888,
+            "seamount": "M2"
+          },
+          {
+            "adjusted_rand": 0.7738853503184714,
+            "aligned_agreement": 0.8333333333333334,
+            "seamount": "M3"
+          }
+        ],
+        "k": 4,
+        "score": 0.5294760700503759,
+        "silhouette": 0.30498766066208466,
+        "size_balance": 0.45569620253164556,
+        "stability": 0.48023817728843987
+      },
+      {
+        "folds": [
+          {
+            "adjusted_rand": 0.19520241387980888,
+            "aligned_agreement": 0.5694444444444444,
+            "seamount": "M0"
+          },
+          {
+            "adjusted_rand": 0.4814993758777753,
+            "aligned_agreement": 0.8055555555555556,
+            "seamount": "M1"
+          },
+          {
+            "adjusted_rand": 0.4430459033018164,
+            "aligned_agreement": 0.6666666666666666,
+            "seamount": "M2"
+          },
+          {
+            "adjusted_rand": 0.38474870017331025,
+            "aligned_agreement": 0.6666666666666666,
+            "seamount": "M3"
+          }
+        ],
+        "k": 5,
+        "score": 0.530289320620699,
+        "silhouette": 0.29024722077872445,
+        "size_balance": 0.5696202531645569,
+        "stability": 0.3761240983081777
+      },
+      {
+        "folds": [
+          {
+            "adjusted_rand": 0.07671110798419342,
+            "aligned_agreement": 0.5,
+            "seamount": "M0"
+          },
+          {
+            "adjusted_rand": 0.49393835071886083,
+            "aligned_agreement": 0.7361111111111112,
+            "seamount": "M1"
+          },
+          {
+            "adjusted_rand": 0.34740516581072084,
+            "aligned_agreement": 0.5694444444444444,
+            "seamount": "M2"
+          },
+          {
+            "adjusted_rand": 0.6346775158549719,
+            "aligned_agreement": 0.7083333333333334,
+            "seamount": "M3"
+          }
+        ],
+        "k": 6,
+        "score": 0.5577434632500866,
+        "silhouette": 0.27895546880981675,
+        "size_balance": 0.6455696202531646,
+        "stability": 0.38818303509218677
+      }
+    ],
+    "chosen_k": 2,
+    "note": "留出稳定度按 seamount 整组留出计算；只有一座海山时退化为轮廓系数与小簇规模",
+    "rule": "候选 k 的得分 = 归一化训练轮廓系数、留出稳定度与小簇规模三者的算术平均：留出稳定度为按 seamount 整组留出、重采样簇与基准簇对齐后的调整后兰德指数均值；小簇规模为最小簇面积占比×k（封顶 1）。取最高分，并列取较小 k。只按海山整组留出，不随机拆分网格。"
+  },
+  "training": {
+    "cells": 288,
+    "input_fingerprint": "d86584fc130fa935f5bd008e88e5248f73008eb7e0f16945138efba19676d0e5",
+    "max_iter": 50,
+    "n_init": 4,
+    "observations": 288,
+    "seamounts": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "seed": 20240611
+  },
+  "weight_semantics": "weight 为网格代表面积（平方千米）：训练时作为样本权重参与缺值填补、尺度变换、聚类中心与离散度计算，解释产物中的占比均按代表面积汇总，避免调查网格数量代替真实面积；同一网格的重复观测合并时代表面积取均值。"
+}

@@ -11,6 +11,13 @@ python3 -m analysis_app summary
 python3 -m analysis_app summary --input data/observations.csv --output output/summary.json
 ```
 
+生境分群（连续地形与离散底质联合聚类，方法见 `docs/habitat.md`）：
+
+```bash
+python3 -m analysis_app habitat --model output/habitat-model.json --assignments output/assignments.json
+python3 -m analysis_app habitat --predict --model output/habitat-model.json --assignments output/new-assignments.json
+```
+
 标准输出是完整 JSON，输出文件使用临时文件原子替换；失败退出码为 2，不覆盖既有结果。空数据集保留零计数与空分组，缺失数值不进入数值分母。数据指纹由按 observation_id 排序后的解析记录计算。
 
 ## 验证与容器
@@ -26,11 +33,14 @@ docker run --rm seamount-habitat
 
 ## 代码与数据
 
-- `analysis_app/io.py`：有类型的 CSV 读取、完整性校验及内容指纹。
+- `analysis_app/io.py`：有类型的 CSV 读取、完整性校验、内容指纹及原子 JSON 输出。
 - `analysis_app/schema.py`：字段类型、主体与聚合维度。
 - `analysis_app/domain.py`：当前业务核算函数。
 - `analysis_app/summary.py`：确定性的分组与数值口径。
+- `analysis_app/habitat.py`：生境分群模型（预处理、面积加权 k 均值、弃权诊断、产物保存与载入）。
+- `analysis_app/selection.py`：按海山整组留出的外推验证与簇数选择。
+- `analysis_app/metrics.py`：加权统计、轮廓系数、标签对齐与调整后兰德指数。
 - `analysis_app/cli.py`：本地命令及原子输出。
-- `docs/data.md`：数据契约。
+- `docs/data.md`：数据契约；`docs/habitat.md`：分群方法与产物说明。
 
 演示数据全部为本地合成，不对应现实机构、设备或人员；不能用来推断真实业务效果。

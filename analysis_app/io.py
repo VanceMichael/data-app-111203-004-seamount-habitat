@@ -2,6 +2,8 @@ import csv
 import hashlib
 import json
 import math
+import os
+import tempfile
 from pathlib import Path
 
 from .schema import FIELDS, REQUIRED
@@ -43,3 +45,19 @@ def fingerprint(records):
     canonical = sorted(records, key=lambda row: row['observation_id'])
     payload = json.dumps(canonical, ensure_ascii=False, sort_keys=True, allow_nan=False)
     return hashlib.sha256(payload.encode()).hexdigest()
+
+
+def save_json(path, result):
+    destination = Path(path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary = tempfile.mkstemp(prefix='.analysis-', dir=destination.parent)
+    try:
+        with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
+            json.dump(result, handle, ensure_ascii=False, sort_keys=True, allow_nan=False, indent=2)
+            handle.write('\n')
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, destination)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
